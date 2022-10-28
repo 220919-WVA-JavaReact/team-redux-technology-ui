@@ -1,4 +1,4 @@
-# Team name: Team Redux
+# Team name: Team Redux.
 
 ## Product idea: Online Minecraft Store
 - Purchase items (like tools and armor)
