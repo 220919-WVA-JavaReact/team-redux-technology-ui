@@ -19,8 +19,6 @@
 - name
 - price
 - material
-  - wood
-  - stone
   - iron
   - gold
   - diamond
