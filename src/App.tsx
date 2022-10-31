@@ -7,7 +7,6 @@ function App() {
   return (
     <div>
       <p className='text-center text-lg'> Minecraft Store</p>
-      
     </div>
   )
 }
