@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import ItemCard from '../components/ItemCard';
 import { Item } from '../models/item'
 
 export default function StorePage() {
@@ -28,15 +29,8 @@ export default function StorePage() {
     }
 
     return (
-        <div className='grid grid-cols-3 gap-4'>
-            {items?.map(item =>
-                <div className='m-2 p-2 border rounded-md'>
-                    <p>{`${item.material} ${item.name}`}</p>
-                    <img src={'img/' + item.material + item.name.toLowerCase() + '.png'}/>
-                    <p>{'$' + item.price}</p>
-                </div>
-            )}
+        <div className='m-2 grid grid-cols-3 gap-4'>
+            {items?.map(item => <ItemCard item={item} />)}
         </div>
     )
-
 }
