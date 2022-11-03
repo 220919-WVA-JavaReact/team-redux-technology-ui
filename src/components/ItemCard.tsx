@@ -10,15 +10,14 @@ export default function ItemCard(props: ICardProps) {
     const { item } = props;
 
     return (
-        <div className='card bg-neutral p-2 justify-between'>
+        <div className='card bg-neutral-focus p-4 justify-between max-w-sm'>
             <h2 className='card-title'>{`${materialDisplayName(item.material)} ${item.name}`}</h2>
 
             <div className="card-body">
-                <figure className='p-2 border border-accent rounded'>
+                <figure className='p-2 bg-neutral rounded-lg'>
                     <img src={'img/' + item.material + item.name.toLowerCase() + '.png'} />
-                    <p className='text-accent text-center text-lg'>{'$' + item.price}</p>
                 </figure>
-
+                <p className='text-accent text-lg text-center'>{'$' + item.price}</p>
             </div>
             <div className='flex justify-center'>
                 <button className='btn btn-primary mr-1'>item page</button>
