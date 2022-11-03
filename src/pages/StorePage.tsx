@@ -28,15 +28,13 @@ export default function StorePage() {
     }
 
     return (
-        <div>
+        <div className='grid grid-cols-3 gap-4'>
             {items?.map(item =>
-                <>
-                    <p>{item.name}</p>
-                    <p>{item.price}</p>
-                    <p>{item.material}</p>
-                    <p>{item.item_id}</p>
-                    <hr></hr>
-                </>
+                <div className='m-2 p-2 border rounded-md'>
+                    <p>{`${item.material} ${item.name}`}</p>
+                    <img src={'img/' + item.material + item.name.toLowerCase() + '.png'}/>
+                    <p>{'$' + item.price}</p>
+                </div>
             )}
         </div>
     )
