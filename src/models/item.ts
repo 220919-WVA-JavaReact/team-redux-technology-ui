@@ -1,8 +1,8 @@
 export enum Material {
-    IRON,
-    GOLD,
-    DIAMOND,
-    NETHERITE
+    IRON = 'IRON',
+    GOLD = 'GOLD',
+    DIAMOND = 'DIAMOND',
+    NETHERITE = 'NETHERITE'
 }
 
 export interface Item {
