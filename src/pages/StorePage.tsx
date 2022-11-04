@@ -17,7 +17,7 @@ export default function StorePage() {
     }
 
     return (
-        <div className='m-2 grid grid-cols-3 gap-4'>
+        <div className='m-2 grid grid-cols-4 gap-4'>
             {items?.map(item => <ItemCard item={item} />)}
         </div>
     )

@@ -1,7 +1,7 @@
 import { Item } from "../models/item";
 import { materialDisplayName } from "../utils/utilityFunctions";
 
-interface ICardProps {
+export interface ICardProps {
     item: Item
 }
 
