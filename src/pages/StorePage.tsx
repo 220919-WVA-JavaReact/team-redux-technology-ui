@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Item } from '../models/item'
+import ItemCard from '../components/ItemCard'
 
 export default function StorePage() {
 
