@@ -1,5 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import LoginModal from './components/LoginModal';
 import Navbar from './components/Navbar';
+import RegisterModal from './components/RegisterModal';
 import Home from './pages/Home';
 import StorePage from './pages/StorePage';
 
@@ -13,6 +15,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<StorePage />} />
       </Routes>
+      <LoginModal />
+      <RegisterModal />
       </BrowserRouter>
     </div>
   )
