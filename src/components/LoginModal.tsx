@@ -4,7 +4,7 @@ export default function LoginModal() {
     <div className="modal" id="login-modal">
       <div className="modal-box">
         {/* put forms and stuff in here */}
-
+        
         <div className="modal-action">
           <a href="#" className="btn">Close</a>
         </div>
