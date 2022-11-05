@@ -49,7 +49,7 @@ async function FetchItems(){
     </div>
 
     <div>
-        <h1 className="text-5xl">{"Minecraft: " + " "  + singleItems?.name}</h1>
+        <h1 className="text-5xl" style={{ color: '#4dffc3' }}>{"Minecraft: " + " "  + singleItems?.name}</h1>
         <h3 className="my-2 text-2xl">{"Price: " + "$" + singleItems?.price}</h3>
         <label className="text-2xl">Material: </label>
         
