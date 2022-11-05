@@ -5,13 +5,12 @@ export default function Navbar() {
         <div className="navbar bg-base-100">
             {/* navbar title */}
             <div className="flex-1">
-                <a className="btn btn-ghost normal-case text-xl">Minecraft Shop</a>
+                <Link to="/" className="btn btn-ghost normal-case text-xl">Minecraft Shop</Link>
             </div>
 
             {/* navbar links */}
             <div className="navbar-center">
                 <ul className="menu menu-horizontal p-0 gap-x-2">
-                    <li><Link to="/">    Home</Link></li>
                     <li><Link to="/shop">Shop</Link></li>
                 </ul>
             </div>
@@ -47,7 +46,7 @@ export default function Navbar() {
                         </div>
                     </label>
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                        <li><p className='font-bold'>Unregistered User</p></li>
+                        <li><p className='font-bold'>Welcome, Guest!</p></li>
                         <li><a href="#login-modal">Log In</a></li>
                         <li><a href="#register-modal">Register</a></li>
                     </ul>
