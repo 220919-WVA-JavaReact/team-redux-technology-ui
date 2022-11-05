@@ -44,7 +44,7 @@ export default function Home(props: IHomeProps) {
       <div className="bg-neutral-focus p-2">
         <p className='text-center font-bold'>Featured products:</p>
         <div className='flex flex-wrap justify-between align-center'>
-          {featuredItems?.map(item => <ItemMiniBlock cart={cart} setCart={setCart} item={item} />)}
+          {featuredItems?.map(item => <ItemMiniBlock key={item.item_id} cart={cart} setCart={setCart} item={item} />)}
         </div>
       </div>
     </div>
