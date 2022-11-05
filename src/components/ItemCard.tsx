@@ -1,14 +1,24 @@
 import { Link } from "react-router-dom";
+import { Cart, CartEntry } from "../models/cart";
 import { Item } from "../models/item";
 import { materialDisplayName } from "../utils/utilityFunctions";
 
 export interface ICardProps {
     item: Item
+    cart: Cart | undefined;
+    setCart: (nextCart: Cart) => void;
 }
 
 export default function ItemCard(props: ICardProps) {
     
-    const { item } = props;
+    const { item, cart, setCart } = props;
+
+    function addToCart(){
+        if (cart) {
+            setCart(cart.addEntry({item: item, count: 1}));
+            console.log(cart);
+        }
+    }
 
     return (
         <div className='card bg-neutral-focus p-4 justify-between max-w-sm'>
@@ -23,7 +33,7 @@ export default function ItemCard(props: ICardProps) {
             <div className='flex justify-center'>
                 <Link to={`/items/${item.item_id}`}><button className='btn btn-primary mr-1'>item page</button></Link>
                 
-                <button className='btn btn-primary ml-1'>add to cart</button>
+                <button onClick={addToCart} className='btn btn-primary ml-1'>add to cart</button>
             </div>
         </div>
     )

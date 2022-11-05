@@ -1,15 +1,22 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import ItemMiniBlock from '../components/ItemMiniBlock';
+import { Cart } from '../models/cart';
 import { Item } from '../models/item';
 import { useAPI } from '../utils/utilityFunctions';
 
-export default function Home() {
+interface IHomeProps {
+    cart: Cart | undefined;
+    setCart: (nextCart: Cart) => void
+}
+
+export default function Home(props: IHomeProps) {
   const [featuredItems, setFeaturedItems] = useState<Item[]>()
+  const {cart, setCart} = props;
 
   useEffect(() => {
     getRandomItems();
-  }, [])
+  }, []) 
 
   async function getRandomItems() {
     const data = await useAPI('/items/random/6', 'GET');
@@ -37,7 +44,7 @@ export default function Home() {
       <div className="bg-neutral-focus p-2">
         <p className='text-center font-bold'>Featured products:</p>
         <div className='flex flex-wrap justify-between align-center'>
-          {featuredItems?.map(item => <ItemMiniBlock item={item} />)}
+          {featuredItems?.map(item => <ItemMiniBlock cart={cart} setCart={setCart} item={item} />)}
         </div>
       </div>
     </div>
