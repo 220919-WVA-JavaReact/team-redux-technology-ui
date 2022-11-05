@@ -1,24 +1,31 @@
 import { useEffect, useState } from 'react'
-import ItemCard from '../components/ItemCard';
 import { Item } from '../models/item'
-import { useAPI } from '../utils/utilityFunctions';
+import ItemCard from '../components/ItemCard'
+import { useAPI } from '../utils/utilityFunctions'
+import { Cart } from '../models/cart'
 
-export default function StorePage() {
+interface IStorePageProps {
+    cart: Cart | undefined;
+    setCart: (nextCart: Cart) => void
+}
 
-    const [items, setItems] = useState<Item[]>()
+export default function StorePage(props: IStorePageProps) {
+
+    const [items, setItems] = useState<Item[]>();
+    const {cart, setCart} = props;
 
     useEffect(() => {
-        getItems();
+        fetchItems();
     }, [])
 
-    async function getItems(){
+    async function fetchItems() {
         const data = await useAPI('/items', 'GET');
         setItems(data);
     }
 
     return (
-        <div className='m-2 grid grid-cols-4 gap-4'>
-            {items?.map(item => <ItemCard item={item} />)}
+        <div className='m-2 grid gap-4 lg:grid-cols-4 sm:grid-cols-2 justify-center'>
+            {items?.map(item => <ItemCard key={item.item_id} item={item} cart={cart} setCart={setCart}/>)}
         </div>
     )
 }
