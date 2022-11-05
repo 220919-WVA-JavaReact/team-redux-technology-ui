@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Item } from "../models/item";
 import { materialDisplayName } from "../utils/utilityFunctions";
 
@@ -20,8 +21,9 @@ export default function ItemCard(props: ICardProps) {
                 <p className='text-accent text-lg text-center'>{'$' + item.price}</p>
             </div>
             <div className='flex justify-center'>
-                <button className='btn btn-primary mr-1'>item page</button>
-                <button className='btn btn-primary ml-1'>buy now</button>
+                <Link to={`/items/${item.item_id}`}><button className='btn btn-primary mr-1'>item page</button></Link>
+                
+                <button className='btn btn-primary ml-1'>add to cart</button>
             </div>
         </div>
     )
