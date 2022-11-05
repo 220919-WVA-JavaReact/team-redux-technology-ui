@@ -1,6 +1,7 @@
 import React from 'react'
 import { Cart } from '../models/cart'
 import { materialDisplayName } from '../utils/utilityFunctions'
+import CartItem from './CartItem';
 
 interface ICartProps {
     cart: Cart,
@@ -9,7 +10,7 @@ interface ICartProps {
 
 export default function ShoppingCart(props: ICartProps) {
 
-    const {cart, setCart} = props;
+    const { cart, setCart } = props;
 
     return (
         <div className="dropdown dropdown-end">
@@ -18,7 +19,7 @@ export default function ShoppingCart(props: ICartProps) {
                     <div className="w-10">
                         {cart.count > 0 ? <img src="/img/site/cart_full.png" /> : <img src="/img/site/cart_empty.png" />}
                         {cart.count > 1 ? <span className="badge badge-sm indicator-item">{cart.count}</span> : ''}
-                        
+
                     </div>
                 </div>
             </label>
@@ -26,13 +27,19 @@ export default function ShoppingCart(props: ICartProps) {
                 <div className="card-body">
                     <span className="font-bold text-lg">{cart.count} Items</span>
                     
-                    {cart.items.map(entry => (
-                        <div key={entry.item.item_id}>
-                            <p>{ `${materialDisplayName(entry.item.material)} ${entry.item.name}`} ({entry.count})</p>
-                        </div>
-                    ))}
+                    <div>
+                        {cart.items.map(entry => (
+                            <CartItem 
+                                key={entry.item.item_id}
+                                item={entry.item} 
+                                count={entry.count} 
+                                cart={cart} 
+                                setCart={setCart} 
+                            />
+                        ))}
+                    </div>
 
-                    <hr></hr>
+                    <hr/>
                     <span className="text-info">Subtotal: ${cart.total}</span>
                     <div className="card-actions">
                         <button className="btn btn-primary btn-block">Checkout</button>
