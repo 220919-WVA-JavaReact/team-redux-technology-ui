@@ -40,3 +40,4 @@ export async function useAPI(route: string, method: string) {
         console.log('There was an error communicating with the API.');
     }
 }
+
