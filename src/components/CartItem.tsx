@@ -16,7 +16,6 @@ export default function CartItem(props: ICartItemProps) {
 
     function removeItemFromCart(){
         setCart(cart.removeEntry(entry));
-        console.log("cart after removal" , cart);
     }
 
     return (

@@ -18,29 +18,29 @@ export class Cart {
         this.total = 0.00;
         this.count = 0;
 
-        this.addEntry = function(entry: CartEntry){
+        this.addEntry = function(entryToAdd: CartEntry){
             // method for adding new entries into our cart
 
             let increasedCount = false;
-            for (let i = 0; i < this.items.length; i++){
+            for (const entry of this.items){
                 // checking if the same item_id exists in the cart 
-                if (this.items[i].item.item_id == entry.item.item_id){
+                if (entry.item.item_id == entryToAdd.item.item_id){
                     // if so, we can up the quantity instead of appending a new item
-                    this.items[i].count += entry.count;
+                    entry.count += entryToAdd.count;
                     increasedCount = true;
                     break;
                 }
             }
             
             // if we didn't find the same id, append a new entry
-            if (!increasedCount) this.items.push(entry);
+            if (!increasedCount) this.items.push(entryToAdd);
 
             // add price to total, and format it properly
-            this.total += entry.item.price;
+            this.total += entryToAdd.item.price;
             this.total = parseFloat(this.total.toFixed(2));
 
             // increase count
-            this.count += entry.count;
+            this.count += entryToAdd.count;
             
             // return a hard copy of the updated cart so react 
             // can actually render the update
@@ -55,7 +55,6 @@ export class Cart {
             for (const entry of this.items){
                 // checking if the item_id exists in the cart 
                 if (entry.item.item_id === entryToRemove.item.item_id){
-                    console.log('found same id')
                     // if so, reduce the count
                     entry.count -= entryToRemove.count;
                 }
