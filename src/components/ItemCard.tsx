@@ -16,7 +16,6 @@ export default function ItemCard(props: ICardProps) {
     function addToCart(){
         if (cart) {
             setCart(cart.addEntry({item: item, count: 1}));
-            console.log(cart);
         }
     }
 
