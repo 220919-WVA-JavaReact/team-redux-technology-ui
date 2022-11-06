@@ -31,8 +31,7 @@ export default function ShoppingCart(props: ICartProps) {
                         {cart.items.map(entry => (
                             <CartItem 
                                 key={entry.item.item_id}
-                                item={entry.item} 
-                                count={entry.count} 
+                                entry={entry}
                                 cart={cart} 
                                 setCart={setCart} 
                             />

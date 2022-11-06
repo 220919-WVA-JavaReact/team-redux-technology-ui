@@ -47,23 +47,23 @@ export class Cart {
             return {...this};
         }
 
-        this.removeEntry = function(entry: CartEntry) {
+        this.removeEntry = function(entryToRemove: CartEntry) {
             
             //create a new list to hold the updated cart items
             const newItems: CartEntry[] = [];
             
-            for (let i = 0; i < this.items.length; i++){
+            for (const entry of this.items){
                 // checking if the item_id exists in the cart 
-                if (this.items[i].item.item_id == entry.item.item_id){
+                if (entry.item.item_id === entryToRemove.item.item_id){
+                    console.log('found same id')
                     // if so, reduce the count
-                    this.items[i].count -= entry.count;
-                    
-                    // only if we have more than zero items, 
-                    // push this entry to the new array
-                    if (this.items[i].count > 0) {
-                        newItems.push(this.items[i]);
-                    } 
+                    entry.count -= entryToRemove.count;
                 }
+                // only if we have more than zero items, 
+                // push this entry to the new array
+                if (entry.count > 0) {
+                    newItems.push(entry);
+                } 
             }
 
             // set items to the new array

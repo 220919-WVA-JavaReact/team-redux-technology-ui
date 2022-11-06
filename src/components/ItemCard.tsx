@@ -21,7 +21,7 @@ export default function ItemCard(props: ICardProps) {
     }
 
     return (
-        <div className='card bg-neutral-focus p-4 justify-between max-w-sm'>
+        <div className='card bg-neutral-focus p-4 justify-between'>
             <h2 className='card-title'>{`${materialDisplayName(item.material)} ${item.name}`}</h2>
 
             <div className="card-body">
