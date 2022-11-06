@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Cart, CartEntry } from "../models/cart";
 import { Item } from "../models/item";
-import { materialDisplayName } from "../utils/utilityFunctions";
+import { getItemImg, materialDisplayName } from "../utils/utilityFunctions";
 
 export interface ICardProps {
     item: Item
@@ -21,12 +21,12 @@ export default function ItemCard(props: ICardProps) {
     }
 
     return (
-        <div className='card bg-neutral-focus p-4 justify-between max-w-sm'>
+        <div className='card bg-neutral-focus p-4 justify-between'>
             <h2 className='card-title'>{`${materialDisplayName(item.material)} ${item.name}`}</h2>
 
             <div className="card-body">
                 <figure className='p-2 bg-neutral rounded-lg'>
-                    <img src={'img/' + item.material + item.name.toLowerCase() + '.png'} />
+                    <img src={getItemImg(item)} />
                 </figure>
                 <p className='text-accent text-lg text-center'>{'$' + item.price}</p>
             </div>

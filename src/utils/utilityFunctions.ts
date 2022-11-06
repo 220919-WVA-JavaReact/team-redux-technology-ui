@@ -1,6 +1,4 @@
-import React, { useState } from "react";
-import { Material } from "../models/item";
-
+import { Item, Material } from "../models/item";
 
 export function materialDisplayName(material: Material){
     let name = '';
@@ -19,6 +17,10 @@ export function materialDisplayName(material: Material){
             break;
     }
     return name;
+}
+
+export function getItemImg(item: Item){
+    return 'img/' + item.material + item.name.toLowerCase() + '.png';
 }
 
 export async function useAPI(route: string, method: string) {
