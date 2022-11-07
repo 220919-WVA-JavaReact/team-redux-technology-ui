@@ -1,35 +1,33 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import { Item, Material } from "../../models/item";
 import { useAPI } from "../../utils/utilityFunctions";
 import { useParams } from 'react-router-dom';
-import ItemCard from "../ItemCard";
 import './SingleItem.css'
-
-
 
 
 function SingleItem(){
 
     const [singleItems, setSingleItems] = useState<Item>()
+    const [localMaterial, setLocalMaterial] = useState<Material>()
     let [count, setCount] = useState(0);
 
     useEffect(() => {
         FetchItems();
-    }, [])
+    }, [localMaterial])
 
-    let { id } = useParams();
+    let { name, material } = useParams();
 
-{/*item promise*/}
-async function FetchItems(){
-    const data = await useAPI(`/items/${id}`, 'GET');
-    setSingleItems(data);
-    console.log(data);
+    {/*item promise*/}
+    async function FetchItems(){
+        const data = await useAPI(`/items/single/${name}?material=${material?.toUpperCase()}`, 'GET');
+        setSingleItems(data);
+        console.log(data);
 
-    window.location.href = '#' + data?.material.toLowerCase();
-}
+        window.location.href = '#' + data?.material.toLowerCase();
+    }
 
-   {/*button qty functionalities*/}
+    {/*button qty functionalities*/}
     function incrementCount() {
       count = count + 1;
       setCount(count);
@@ -39,7 +37,6 @@ async function FetchItems(){
       setCount(count);
     }
     
-
 
     return(
 <main>
@@ -51,55 +48,63 @@ async function FetchItems(){
 
             <div className="col-span-1">
                 <ul>
-                    <li><a href="#gold" className="object-none object-left-bottom thumbimg" >
-                    <img src={'../img/' + "GOLD" + singleItems?.name.toLowerCase() + '.png'}
+                    <li><Link 
+                    to={`/items/${singleItems?.name.toLowerCase()}/gold`} 
+                    onClick={() => setLocalMaterial(Material.GOLD)} className="object-none object-left-bottom thumbimg" >
+                    <img src={'/public/img/' + "GOLD" + singleItems?.name.toLowerCase() + '.png'}
                     style={{width: 200, height: 100}}
                     className="w-full" />
-                    </a></li>
+                    </Link></li>
 
-                    <li><a href="#diamond" className="object-none object-left-bottom thumbimg">
-                    <img src={'../img/' + "Diamond" + singleItems?.name.toLowerCase() + '.png'}
+                    <li><Link 
+                    to={`/items/${singleItems?.name.toLowerCase()}/diamond`} 
+                    onClick={() => setLocalMaterial(Material.DIAMOND)} className="object-none object-left-bottom thumbimg" >
+                    <img src={'/public/img/' + "Diamond" + singleItems?.name.toLowerCase() + '.png'}
                     style={{width: 200, height: 100}}
                     className="w-full" />
-                    </a></li>
+                    </Link></li>
                     <li>
 
-                    <a href="#iron" className="object-none object-left-bottom thumbimg">
-                    <img src={'../img/' + "IRON" + singleItems?.name.toLowerCase() + '.png'}
+                    <Link 
+                    to={`/items/${singleItems?.name.toLowerCase()}/iron`} 
+                    onClick={() => setLocalMaterial(Material.IRON)} className="object-none object-left-bottom thumbimg" >
+                    <img src={'/public/img/' + "IRON" + singleItems?.name.toLowerCase() + '.png'}
                     style={{width: 200, height: 100}}
                     className="w-full" />
-                    </a></li>
+                    </Link></li>
 
-                    <li><a href="#netherite" className="object-none object-left-bottom thumbimg">
-                    <img src={'../img/' + "NETHERITE" + singleItems?.name.toLowerCase() + '.png'}
+                    <li><Link 
+                    to={`/items/${singleItems?.name.toLowerCase()}/netherite`} 
+                    onClick={() => setLocalMaterial(Material.NETHERITE)} className="object-none object-left-bottom thumbimg" >
+                    <img src={'/public/img/' + "NETHERITE" + singleItems?.name.toLowerCase() + '.png'}
                     style={{width: 200, height: 100}}
                     className="w-full" />
-                    </a></li>
+                    </Link></li>
 
                 </ul>
             </div>
 
             <div className="col-span-1 carousel rounded-box ml-20">
                 <div id="gold" className="carousel-item w-full">
-                    <img src={'../img/' + "GOLD" + singleItems?.name.toLowerCase() + '.png'}
+                    <img src={'/public/img/' + "GOLD" + singleItems?.name.toLowerCase() + '.png'}
                     style={{width: 300, height: 300}}
                     className="w-full" />
                 </div> 
 
                 <div id="diamond" className="carousel-item w-full">
-                    <img src={'../img/' + "DIAMOND" + singleItems?.name.toLowerCase() + '.png'}
+                    <img src={'/public/img/' + "DIAMOND" + singleItems?.name.toLowerCase() + '.png'}
                     style={{width: 300, height: 300}}
                     className="w-full" />
                  </div> 
 
                 <div id="iron" className="carousel-item w-full">
-                    <img src={'../img/' + "IRON" + singleItems?.name.toLowerCase() + '.png'}
+                    <img src={'/public/img/' + "IRON" + singleItems?.name.toLowerCase() + '.png'}
                     style={{width: 300, height: 300}}
                     className="w-full" />
                 </div> 
 
                  <div id="netherite" className="carousel-item w-full">
-                    <img src={'../img/' + "NETHERITE" + singleItems?.name.toLowerCase() + '.png'}
+                    <img src={'/public/img/' + "NETHERITE" + singleItems?.name.toLowerCase() + '.png'}
                     style={{width: 300, height: 300}}
                     className="w-full" />
                 </div>
@@ -116,10 +121,26 @@ async function FetchItems(){
             
             <div className="flex-row-reverse space-x-4 space-x-reverse ">
                 <span className="selection"></span>
-                <a href="#gold"      className="btn btn-primary m-5 pr-4 pl-4" style={{ fontWeight: 'bold' }}>Gold</a>
-                <a href="#iron"      className="btn btn-primary m-5 pr-4 pl-4" style={{ fontWeight: 'bold' }}>Diamond</a>
-                <a href="#diamond"   className="btn btn-primary m-5 " style={{ fontWeight: 'bold' }}>Iron</a>
-                <a href="#netherite" className="btn btn-primary m-1" style={{ fontWeight: 'bold' }}>Netherite</a>
+                <Link 
+                to={`/items/${singleItems?.name.toLowerCase()}/gold`} 
+                onClick={() => setLocalMaterial(Material.GOLD)}
+                className="btn btn-primary m-5 pr-4 pl-4" 
+                style={{ fontWeight: 'bold' }}>Gold</Link>
+                <Link 
+                to={`/items/${singleItems?.name.toLowerCase()}/diamond`} 
+                onClick={() => setLocalMaterial(Material.DIAMOND)}
+                className="btn btn-primary m-5 pr-4 pl-4" 
+                style={{ fontWeight: 'bold' }}>Diamond</Link>
+                <Link 
+                to={`/items/${singleItems?.name.toLowerCase()}/iron`} 
+                onClick={() => setLocalMaterial(Material.IRON)}
+                className="btn btn-primary m-5 " 
+                style={{ fontWeight: 'bold' }}>Iron</Link>
+                <Link 
+                to={`/items/${singleItems?.name.toLowerCase()}/netherite`} 
+                onClick={() => setLocalMaterial(Material.NETHERITE)}
+                className="btn btn-primary m-1" 
+                style={{ fontWeight: 'bold' }}>Netherite</Link>
             </div> 
 
             <div className="btn-group m-1 mx-8 my-6">
