@@ -1,10 +1,9 @@
 import  { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
-import { Item, Material } from "../../models/item";
+import { Item } from "../../models/item";
 import { useAPI } from "../../utils/utilityFunctions";
 import { useParams } from 'react-router-dom';
 import './SingleItem.css'
-
 
 function SingleItem(){
 
@@ -52,6 +51,7 @@ function SingleItem(){
                     to={`/items/${singleItems?.name.toLowerCase()}/gold`} 
                     onClick={() => setLocalMaterial(Material.GOLD)} className="object-none object-left-bottom thumbimg" >
                     <img src={'/public/img/' + "GOLD" + singleItems?.name.toLowerCase() + '.png'}
+
                     style={{width: 200, height: 100}}
                     className="w-full" />
                     </Link></li>
@@ -108,7 +108,7 @@ function SingleItem(){
                     style={{width: 300, height: 300}}
                     className="w-full" />
                 </div>
-                
+
             </div> 
          </div>
 
@@ -144,12 +144,12 @@ function SingleItem(){
             </div> 
 
             <div className="btn-group m-1 mx-8 my-6">
-                <input type="radio" name="options" data-title="-" onClick={decrementCount} className="btn" />
+                <input type="radio" name="options" data-title="-" onClick={decrementCount}  disabled={count <= 0 ? true : false} className="btn" />
                 <input type="radio" name="options" data-title={count} style={{color: 'white' }} className="btn btn-disabled" />
                 <input type="radio" name="options" data-title="+" onClick={incrementCount} className="btn" />
             </div>
 
-            <button className="btn btn-primary my-4 btn-wide" style={{ fontWeight: 'bold' }}>Add to Cart</button>
+            <button className="btn btn-primary my-4 btn-wide" style={{ fontWeight: 'bold' }} >Add to Cart</button>
         </div>
     </div>
 </main>
