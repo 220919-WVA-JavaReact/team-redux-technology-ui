@@ -23,7 +23,11 @@ export default function CartItem(props: ICartItemProps) {
             <span>{`${materialDisplayName(entry.item.material)} ${entry.item.name}`} </span>
             <div className='flex gap-x-2'>
                 <span className="badge badge-sm">{entry.count}</span>
-                <span onClick={removeItemFromCart} className="badge badge-sm bg-secondary-focus">x</span>
+                <span 
+                    onClick={removeItemFromCart} 
+                    className="badge badge-sm bg-secondary-focus border-secondary-focus text-black hover:bg-secondary">
+                    X
+                </span>
             </div>
         </div>
     )
