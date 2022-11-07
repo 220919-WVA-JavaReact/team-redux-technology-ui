@@ -20,3 +20,15 @@
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover; /* Resize the background image to cover the entire container */
 }
+
+body {
+  cursor: url('/img/site/cursor.png'), auto;
+}
+
+button {
+  cursor: url('/img/site/cursor.png'), auto;
+}
+
+a {
+  cursor: url('/img/site/cursor.png'), auto;
+}
