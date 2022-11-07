@@ -54,7 +54,7 @@ async function FetchItems(){
                     style={{width: 200, height: 100}}
                     className="w-full" />
                     </a></li>
-
+                    
                     <li><a href="#item2" className="object-none object-left-bottom thumbimg">
                     <img src={'../img/' + "Diamond" + singleItems?.name.toLowerCase() + '.png'}
                     style={{width: 200, height: 100}}
@@ -101,7 +101,7 @@ async function FetchItems(){
                     style={{width: 300, height: 300}}
                     className="w-full" />
                 </div>
-                
+
             </div> 
          </div>
 
@@ -121,12 +121,12 @@ async function FetchItems(){
             </div> 
 
             <div className="btn-group m-1 mx-8 my-6">
-                <input type="radio" name="options" data-title="-" onClick={decrementCount} className="btn" />
+                <input type="radio" name="options" data-title="-" onClick={decrementCount}  disabled={count <= 0 ? true : false} className="btn" />
                 <input type="radio" name="options" data-title={count} style={{color: 'white' }} className="btn btn-disabled" />
                 <input type="radio" name="options" data-title="+" onClick={incrementCount} className="btn" />
             </div>
 
-            <button className="btn btn-primary my-4 btn-wide" style={{ fontWeight: 'bold' }}>Add to Cart</button>
+            <button className="btn btn-primary my-4 btn-wide" style={{ fontWeight: 'bold' }} >Add to Cart</button>
         </div>
     </div>
 </main>
