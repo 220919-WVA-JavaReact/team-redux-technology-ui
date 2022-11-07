@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import SingleItem from './components/SingleItem';
+import SingleItem from './components/SingleItem/SingleItem';
 import LoginModal from './components/LoginModal';
 import Navbar from './components/Navbar';
 import RegisterModal from './components/RegisterModal';
