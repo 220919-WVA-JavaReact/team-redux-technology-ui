@@ -21,7 +21,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home cart={cart} setCart={setCart}/>} />
                     <Route path="/shop" element={<StorePage cart={cart} setCart={setCart}/>} />
-                    <Route path="/items/:id" element={< SingleItem />} />
+                    <Route path="/items/:name/:material" element={< SingleItem />} />
                 </Routes>
                 <LoginModal currentUser={loggedInUser} setCurrentUser={setLoggedInUser}/>
                 <RegisterModal />
