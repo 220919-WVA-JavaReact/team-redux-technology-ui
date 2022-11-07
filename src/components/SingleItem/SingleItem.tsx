@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
 import { Item, Material } from "../../models/item";
 import { useAPI } from "../../utils/utilityFunctions";
 import { useParams } from 'react-router-dom';
 import ItemCard from "../ItemCard";
 import './SingleItem.css'
+
 
 
 
@@ -52,22 +54,26 @@ async function FetchItems(){
                     style={{width: 200, height: 100}}
                     className="w-full" />
                     </a></li>
+
                     <li><a href="#item2" className="object-none object-left-bottom thumbimg">
                     <img src={'../img/' + "Diamond" + singleItems?.name.toLowerCase() + '.png'}
                     style={{width: 200, height: 100}}
                     className="w-full" />
                     </a></li>
                     <li>
+
                     <a href="#item3" className="object-none object-left-bottom thumbimg">
                     <img src={'../img/' + "IRON" + singleItems?.name.toLowerCase() + '.png'}
                     style={{width: 200, height: 100}}
                     className="w-full" />
                     </a></li>
+
                     <li><a href="#item4" className="object-none object-left-bottom thumbimg">
                     <img src={'../img/' + "NETHERITE" + singleItems?.name.toLowerCase() + '.png'}
                     style={{width: 200, height: 100}}
                     className="w-full" />
                     </a></li>
+
                 </ul>
             </div>
 
@@ -77,21 +83,25 @@ async function FetchItems(){
                     style={{width: 300, height: 300}}
                     className="w-full" />
                 </div> 
+
                 <div id="item2" className="carousel-item w-full">
                     <img src={'../img/' + "DIAMOND" + singleItems?.name.toLowerCase() + '.png'}
                     style={{width: 300, height: 300}}
                     className="w-full" />
                  </div> 
+
                 <div id="item3" className="carousel-item w-full">
                     <img src={'../img/' + "IRON" + singleItems?.name.toLowerCase() + '.png'}
                     style={{width: 300, height: 300}}
                     className="w-full" />
                 </div> 
+
                  <div id="item4" className="carousel-item w-full">
                     <img src={'../img/' + "NETHERITE" + singleItems?.name.toLowerCase() + '.png'}
                     style={{width: 300, height: 300}}
                     className="w-full" />
                 </div>
+                
             </div> 
          </div>
 
