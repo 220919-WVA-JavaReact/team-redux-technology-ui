@@ -25,6 +25,8 @@ async function FetchItems(){
     const data = await useAPI(`/items/${id}`, 'GET');
     setSingleItems(data);
     console.log(data);
+
+    window.location.href = '#' + data?.material.toLowerCase();
 }
 
    {/*button qty functionalities*/}
@@ -49,26 +51,26 @@ async function FetchItems(){
 
             <div className="col-span-1">
                 <ul>
-                    <li><a href="#item1" className="object-none object-left-bottom thumbimg" >
+                    <li><a href="#gold" className="object-none object-left-bottom thumbimg" >
                     <img src={'../img/' + "GOLD" + singleItems?.name.toLowerCase() + '.png'}
                     style={{width: 200, height: 100}}
                     className="w-full" />
                     </a></li>
 
-                    <li><a href="#item2" className="object-none object-left-bottom thumbimg">
+                    <li><a href="#diamond" className="object-none object-left-bottom thumbimg">
                     <img src={'../img/' + "Diamond" + singleItems?.name.toLowerCase() + '.png'}
                     style={{width: 200, height: 100}}
                     className="w-full" />
                     </a></li>
                     <li>
 
-                    <a href="#item3" className="object-none object-left-bottom thumbimg">
+                    <a href="#iron" className="object-none object-left-bottom thumbimg">
                     <img src={'../img/' + "IRON" + singleItems?.name.toLowerCase() + '.png'}
                     style={{width: 200, height: 100}}
                     className="w-full" />
                     </a></li>
 
-                    <li><a href="#item4" className="object-none object-left-bottom thumbimg">
+                    <li><a href="#netherite" className="object-none object-left-bottom thumbimg">
                     <img src={'../img/' + "NETHERITE" + singleItems?.name.toLowerCase() + '.png'}
                     style={{width: 200, height: 100}}
                     className="w-full" />
@@ -78,25 +80,25 @@ async function FetchItems(){
             </div>
 
             <div className="col-span-1 carousel rounded-box ml-20">
-                <div id="item1" className="carousel-item w-full">
+                <div id="gold" className="carousel-item w-full">
                     <img src={'../img/' + "GOLD" + singleItems?.name.toLowerCase() + '.png'}
                     style={{width: 300, height: 300}}
                     className="w-full" />
                 </div> 
 
-                <div id="item2" className="carousel-item w-full">
+                <div id="diamond" className="carousel-item w-full">
                     <img src={'../img/' + "DIAMOND" + singleItems?.name.toLowerCase() + '.png'}
                     style={{width: 300, height: 300}}
                     className="w-full" />
                  </div> 
 
-                <div id="item3" className="carousel-item w-full">
+                <div id="iron" className="carousel-item w-full">
                     <img src={'../img/' + "IRON" + singleItems?.name.toLowerCase() + '.png'}
                     style={{width: 300, height: 300}}
                     className="w-full" />
                 </div> 
 
-                 <div id="item4" className="carousel-item w-full">
+                 <div id="netherite" className="carousel-item w-full">
                     <img src={'../img/' + "NETHERITE" + singleItems?.name.toLowerCase() + '.png'}
                     style={{width: 300, height: 300}}
                     className="w-full" />
@@ -114,10 +116,10 @@ async function FetchItems(){
             
             <div className="flex-row-reverse space-x-4 space-x-reverse ">
                 <span className="selection"></span>
-                <a href="#item1" className="btn btn-primary m-5 pr-4 pl-4" style={{ fontWeight: 'bold' }}>Gold</a>
-                <a href="#item2" className="btn btn-primary m-5 pr-4 pl-4" style={{ fontWeight: 'bold' }}>Diamond</a>
-                <a href="#item3" className="btn btn-primary m-5 " style={{ fontWeight: 'bold' }}>Iron</a>
-                <a href="#item4" className="btn btn-primary m-1" style={{ fontWeight: 'bold' }}>Netherite</a>
+                <a href="#gold"      className="btn btn-primary m-5 pr-4 pl-4" style={{ fontWeight: 'bold' }}>Gold</a>
+                <a href="#iron"      className="btn btn-primary m-5 pr-4 pl-4" style={{ fontWeight: 'bold' }}>Diamond</a>
+                <a href="#diamond"   className="btn btn-primary m-5 " style={{ fontWeight: 'bold' }}>Iron</a>
+                <a href="#netherite" className="btn btn-primary m-1" style={{ fontWeight: 'bold' }}>Netherite</a>
             </div> 
 
             <div className="btn-group m-1 mx-8 my-6">
