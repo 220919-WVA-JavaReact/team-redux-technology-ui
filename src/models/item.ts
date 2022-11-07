@@ -6,6 +6,7 @@ export enum Material {
 }
 
 export interface Item {
+    map(arg0: (item: any) => void): unknown
     item_id: string,
     name: string,
     image: string,

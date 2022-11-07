@@ -1,6 +1,4 @@
-import React, { useState } from "react";
-import { Material } from "../models/item";
-
+import { Item, Material } from "../models/item";
 
 export function materialDisplayName(material: Material){
     let name = '';
@@ -21,10 +19,16 @@ export function materialDisplayName(material: Material){
     return name;
 }
 
-export async function useAPI(route: string, method: string) {
+export function getItemImg(item: Item){
+    return 'img/' + item.material + item.name.toLowerCase() + '.png';
+}
+
+export async function useAPI(route: string, method: string, headers?: HeadersInit, body?: BodyInit) {
     try {
         const res = await fetch(`http://localhost:8080${route}`, {
             method: method,
+            headers: headers ? headers : undefined,
+            body: body ? body : undefined
         }); 
 
         if (res.status != 200) {
