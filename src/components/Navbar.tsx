@@ -38,13 +38,17 @@ export default function Navbar(props: INavbarProps) {
                 <div className="dropdown dropdown-end">
                     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                         <div className="w-10 rounded-full">
-                            <img src="/img/site/user_unregistered.webp" />
+                            {user? <img src="/img/site/loggedbuyer.webp" /> : <img src="/img/site/user_unregistered.webp" />}
+                            
                         </div>
                     </label>
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                        <li><p className='font-bold'>Welcome, Guest!</p></li>
-                        <li><a href="#login-modal">Log In</a></li>
-                        <li><a href="#register-modal">Register</a></li>
+                        <li><p className='font-bold'>Welcome, {user? user.username : 'Guest'}!</p></li>
+                        {user? '' : <>
+                            <li><a href="#login-modal">Log In</a></li>
+                            <li><a href="#register-modal">Register</a></li>
+                        </>}
+                        
                     </ul>
                 </div>
             </div>
