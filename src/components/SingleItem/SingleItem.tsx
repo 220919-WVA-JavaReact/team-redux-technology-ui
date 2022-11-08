@@ -1,6 +1,6 @@
 import  { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
-import { Item } from "../../models/item";
+import { Item, Material } from "../../models/item";
 import { useAPI } from "../../utils/utilityFunctions";
 import { useParams } from 'react-router-dom';
 import './SingleItem.css'
