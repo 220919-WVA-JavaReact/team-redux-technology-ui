@@ -1,11 +1,21 @@
 import  { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
-import { Item } from "../../models/item";
+import { Item, Material } from "../../models/item";
 import { useAPI } from "../../utils/utilityFunctions";
 import { useParams } from 'react-router-dom';
 import './SingleItem.css'
+import { User } from "../../models/user";
+import { Cart } from "../../models/cart";
 
-function SingleItem(){
+interface ISingleItemProps {
+    user: User | undefined,
+    cart: Cart,
+    setCart: (nextCart: Cart) => void
+}
+
+function SingleItem(props: ISingleItemProps){
+
+    const {user, cart, setCart} = props;
 
     const [singleItems, setSingleItems] = useState<Item>()
     const [localMaterial, setLocalMaterial] = useState<Material>()
@@ -35,6 +45,12 @@ function SingleItem(){
       count = count - 1;
       setCount(count);
     }
+
+    function addToCart(){
+        if (singleItems && count > 0) {
+            setCart(cart?.addEntry({item: singleItems, count: count}));
+        }
+    }
     
 
     return(
@@ -50,7 +66,7 @@ function SingleItem(){
                     <li><Link 
                     to={`/items/${singleItems?.name.toLowerCase()}/gold`} 
                     onClick={() => setLocalMaterial(Material.GOLD)} className="object-none object-left-bottom thumbimg" >
-                    <img src={'/public/img/' + "GOLD" + singleItems?.name.toLowerCase() + '.png'}
+                    <img src={'/img/' + "GOLD" + singleItems?.name.toLowerCase() + '.png'}
 
                     style={{width: 200, height: 100}}
                     className="w-full" />
@@ -59,7 +75,7 @@ function SingleItem(){
                     <li><Link 
                     to={`/items/${singleItems?.name.toLowerCase()}/diamond`} 
                     onClick={() => setLocalMaterial(Material.DIAMOND)} className="object-none object-left-bottom thumbimg" >
-                    <img src={'/public/img/' + "Diamond" + singleItems?.name.toLowerCase() + '.png'}
+                    <img src={'/img/' + "Diamond" + singleItems?.name.toLowerCase() + '.png'}
                     style={{width: 200, height: 100}}
                     className="w-full" />
                     </Link></li>
@@ -68,7 +84,7 @@ function SingleItem(){
                     <Link 
                     to={`/items/${singleItems?.name.toLowerCase()}/iron`} 
                     onClick={() => setLocalMaterial(Material.IRON)} className="object-none object-left-bottom thumbimg" >
-                    <img src={'/public/img/' + "IRON" + singleItems?.name.toLowerCase() + '.png'}
+                    <img src={'/img/' + "IRON" + singleItems?.name.toLowerCase() + '.png'}
                     style={{width: 200, height: 100}}
                     className="w-full" />
                     </Link></li>
@@ -76,7 +92,7 @@ function SingleItem(){
                     <li><Link 
                     to={`/items/${singleItems?.name.toLowerCase()}/netherite`} 
                     onClick={() => setLocalMaterial(Material.NETHERITE)} className="object-none object-left-bottom thumbimg" >
-                    <img src={'/public/img/' + "NETHERITE" + singleItems?.name.toLowerCase() + '.png'}
+                    <img src={'/img/' + "NETHERITE" + singleItems?.name.toLowerCase() + '.png'}
                     style={{width: 200, height: 100}}
                     className="w-full" />
                     </Link></li>
@@ -86,25 +102,25 @@ function SingleItem(){
 
             <div className="col-span-1 carousel rounded-box ml-20">
                 <div id="gold" className="carousel-item w-full">
-                    <img src={'/public/img/' + "GOLD" + singleItems?.name.toLowerCase() + '.png'}
+                    <img src={'/img/' + "GOLD" + singleItems?.name.toLowerCase() + '.png'}
                     style={{width: 300, height: 300}}
                     className="w-full" />
                 </div> 
 
                 <div id="diamond" className="carousel-item w-full">
-                    <img src={'/public/img/' + "DIAMOND" + singleItems?.name.toLowerCase() + '.png'}
+                    <img src={'/img/' + "DIAMOND" + singleItems?.name.toLowerCase() + '.png'}
                     style={{width: 300, height: 300}}
                     className="w-full" />
                  </div> 
 
                 <div id="iron" className="carousel-item w-full">
-                    <img src={'/public/img/' + "IRON" + singleItems?.name.toLowerCase() + '.png'}
+                    <img src={'/img/' + "IRON" + singleItems?.name.toLowerCase() + '.png'}
                     style={{width: 300, height: 300}}
                     className="w-full" />
                 </div> 
 
                  <div id="netherite" className="carousel-item w-full">
-                    <img src={'/public/img/' + "NETHERITE" + singleItems?.name.toLowerCase() + '.png'}
+                    <img src={'/img/' + "NETHERITE" + singleItems?.name.toLowerCase() + '.png'}
                     style={{width: 300, height: 300}}
                     className="w-full" />
                 </div>
@@ -149,7 +165,12 @@ function SingleItem(){
                 <input type="radio" name="options" data-title="+" onClick={incrementCount} className="btn" />
             </div>
 
-            <button className="btn btn-primary my-4 btn-wide" style={{ fontWeight: 'bold' }} >Add to Cart</button>
+            <button 
+                onClick={addToCart}
+                className="btn btn-primary my-4 btn-wide" 
+                style={{ fontWeight: 'bold' }} >
+                    Add to Cart
+            </button>
         </div>
     </div>
 </main>
