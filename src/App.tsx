@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import SingleItem from './components/SingleItem';
+import SingleItem from './components/SingleItem/SingleItem';
 import LoginModal from './components/LoginModal';
 import Navbar from './components/Navbar';
 import RegisterModal from './components/RegisterModal';
@@ -21,7 +21,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home cart={cart} setCart={setCart}/>} />
                     <Route path="/shop" element={<StorePage cart={cart} setCart={setCart}/>} />
-                    <Route path="/items/:id" element={< SingleItem />} />
+                    <Route path="/items/:name/:material" element={< SingleItem user={loggedInUser} cart={cart} setCart={setCart}/>} />
                 </Routes>
                 <LoginModal currentUser={loggedInUser} setCurrentUser={setLoggedInUser}/>
                 <RegisterModal />

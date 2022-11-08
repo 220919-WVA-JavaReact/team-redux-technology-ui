@@ -1,0 +1,13 @@
+.box {
+    display: flex;
+    align-items: flex-start;
+    height: 200px;
+  }
+  .box>*:first-child {
+      align-self: stretch;
+  }
+  .box .selected {
+      align-self: center;
+  }
+
+  
