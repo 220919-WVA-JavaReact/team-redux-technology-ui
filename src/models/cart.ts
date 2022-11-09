@@ -10,7 +10,7 @@ export class Cart {
     total: number;
     count: number;
     addEntry: (entry: CartEntry) => Cart;
-    removeEntry: (entry: CartEntry) => Cart;
+    adjustItemCount: (entry: CartEntry) => Cart;
     recountTotals: () => void;
     
     constructor(){
@@ -47,16 +47,16 @@ export class Cart {
             return {...this};
         }
 
-        this.removeEntry = function(entryToRemove: CartEntry) {
+        this.adjustItemCount = function(entryToAdjust: CartEntry) {
             
             //create a new list to hold the updated cart items
             const newItems: CartEntry[] = [];
             
             for (const entry of this.items){
                 // checking if the item_id exists in the cart 
-                if (entry.item.item_id === entryToRemove.item.item_id){
-                    // if so, reduce the count
-                    entry.count -= entryToRemove.count;
+                if (entry.item.item_id === entryToAdjust.item.item_id){
+                    // if so, adjust the count
+                    entry.count += entryToAdjust.count;
                 }
                 // only if we have more than zero items, 
                 // push this entry to the new array
