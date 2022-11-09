@@ -17,9 +17,9 @@ function App() {
     return (
         <div className="container mx-auto">
             <BrowserRouter>
-                <Navbar user={loggedInUser} cart={cart} setCart={setCart}/>
+                <Navbar user={loggedInUser} setUser={setLoggedInUser} cart={cart} setCart={setCart}/>
                 <Routes>
-                    <Route path="/" element={<Home cart={cart} setCart={setCart}/>} />
+                    <Route path="/" element={<Home user={loggedInUser} cart={cart} setCart={setCart}/>} />
                     <Route path="/shop" element={<StorePage cart={cart} setCart={setCart}/>} />
                     <Route path="/items/:name/:material" element={< SingleItem user={loggedInUser} cart={cart} setCart={setCart}/>} />
                 </Routes>
