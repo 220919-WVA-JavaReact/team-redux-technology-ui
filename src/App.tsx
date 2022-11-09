@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import SingleItem from './components/SingleItem/SingleItem';
 import LoginModal from './components/LoginModal';
@@ -5,8 +6,8 @@ import Navbar from './components/Navbar';
 import RegisterModal from './components/RegisterModal';
 import Home from './pages/Home';
 import StorePage from './pages/StorePage';
+import Checkout from './pages/Checkout';
 import { Cart } from './models/cart';
-import { useState } from 'react';
 import { User } from './models/user';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
                     <Route path="/" element={<Home user={loggedInUser} cart={cart} setCart={setCart}/>} />
                     <Route path="/shop" element={<StorePage cart={cart} setCart={setCart}/>} />
                     <Route path="/items/:name/:material" element={< SingleItem user={loggedInUser} cart={cart} setCart={setCart}/>} />
+                    <Route path="/checkout" element={<Checkout user={loggedInUser} cart={cart} setCart={setCart} />}></Route>
                 </Routes>
                 <LoginModal currentUser={loggedInUser} setCurrentUser={setLoggedInUser}/>
                 <RegisterModal />
