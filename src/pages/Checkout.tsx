@@ -1,5 +1,6 @@
 import CheckoutItem from "../components/CheckoutItem";
 import { Cart } from "../models/cart";
+import { Order } from "../models/order";
 import { User } from "../models/user";
 import { priceFormatter } from "../utils/utilityFunctions";
 
@@ -12,6 +13,10 @@ interface ICheckoutProps {
 export default function Checkout(props: ICheckoutProps) {
 
     const { user, cart, setCart } = props;
+
+    function postOrder() {
+        const orders: Order[] = [];
+    }
 
     return (
         <div className="overflow-x-auto w-full">
