@@ -25,7 +25,7 @@ export function getItemImg(item: Item) {
 
 export async function useAPI(route: string, method: string, headers?: HeadersInit, body?: any) {
     try {
-        const res = await fetch(`http://localhost:8080${route}`, {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}${route}`, {
             method: method,
             headers: headers ? headers : {'Content-Type': 'application/json'},
             body: body ? JSON.stringify(body) : undefined
