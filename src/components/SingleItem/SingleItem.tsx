@@ -63,9 +63,9 @@ function SingleItem(props: ISingleItemProps){
 
             <div className="lg:col-span-1">
                 <ul className="line">
-                    <li><Link 
+                    <li className="block"><Link 
                     to={`/items/${singleItems?.name.toLowerCase()}/gold`} 
-                    onClick={() => setLocalMaterial(Material.GOLD)} className="object-none object-left-bottom thumbimg" >
+                    onClick={() => setLocalMaterial(Material.GOLD)} className="object-none object-left-bottom thumbimg " >
                     <img src={'/img/' + "GOLD" + singleItems?.name.toLowerCase() + '.png'}
                     style={{width: 200, height: 100}}
                     className="pb" />
@@ -130,7 +130,7 @@ function SingleItem(props: ISingleItemProps){
 
                  {/*right side- item info*/}
          <div className="info">
-            <h1 className="text-5xl" style={{ color: '#4dffc3' }}>{"Minecraft: " + " "  + singleItems?.name}</h1>
+            <h1 className="text-5xl" style={{ color: '#4dffc3' }}>{"Minecraft: " + " " + singleItems?.name}</h1>
             <h3 className="my-2 text-2xl">{"Price: " + "$" + singleItems?.price}</h3>
             <label className="text-2xl">Material: </label>
             
