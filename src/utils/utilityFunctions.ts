@@ -23,12 +23,12 @@ export function getItemImg(item: Item) {
     return 'img/' + item.material + item.name.toLowerCase() + '.png';
 }
 
-export async function useAPI(route: string, method: string, headers?: HeadersInit, body?: BodyInit) {
+export async function useAPI(route: string, method: string, headers?: HeadersInit, body?: any) {
     try {
         const res = await fetch(`http://localhost:8080${route}`, {
             method: method,
-            headers: headers ? headers : undefined,
-            body: body ? body : undefined
+            headers: headers ? headers : {'Content-Type': 'application/json'},
+            body: body ? JSON.stringify(body) : undefined
         });
 
         if (res.status != 200) {
