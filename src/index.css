@@ -21,14 +21,6 @@
   background-size: cover; /* Resize the background image to cover the entire container */
 }
 
-body {
-  cursor: url('/img/site/cursor.png'), auto;
-}
-
-button {
-  cursor: url('/img/site/cursor.png'), auto;
-}
-
-a {
+body, button, a, .btn{
   cursor: url('/img/site/cursor.png'), auto;
 }
