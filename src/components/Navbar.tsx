@@ -8,13 +8,18 @@ interface INavbarProps {
     user: User | undefined,
     cart: Cart,
     setCart: (nextCart: Cart) => void
+    setUser: (nextUser: User | undefined) => void
 }
 
 export default function Navbar(props: INavbarProps) {
-    const {user, cart, setCart} = props;
+    const {user, cart, setCart, setUser} = props;
 
     useEffect(() => {},[cart]);
     
+    function logout (){
+        setUser(undefined);
+    }
+
     return (
         <div className="navbar bg-base-100 gap-x-2">
             {/* navbar title */}
@@ -44,7 +49,7 @@ export default function Navbar(props: INavbarProps) {
                     </label>
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         <li><p className='font-bold'>Welcome, {user? user.username : 'Guest'}!</p></li>
-                        {user? '' : <>
+                        {user? <li><button onClick={logout}>Log out</button></li> : <>
                             <li><a href="#login-modal">Log In</a></li>
                             <li><a href="#register-modal">Register</a></li>
                         </>}
