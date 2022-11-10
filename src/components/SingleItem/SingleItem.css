@@ -132,18 +132,8 @@
 
 
 /* hover over images animation */
-  body {
-    margin: 0;
-    padding: 0;
-    background-color: #000;
-  }
   
-  body {
-    margin: 0;
-    padding: 0;
-    background: #262626;
-  }
-  
+
   ul img.pb{
     margin: 0;
     padding: 0;
