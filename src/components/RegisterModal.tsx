@@ -45,7 +45,7 @@ export default function RegisterModal() {
           },
           body: JSON.stringify({ first_name, last_name, username, password, email })
         })
-        if (response.status == 204) {
+        if (response.status == 201) {
                   console.log("account created successfully!")
                 } else {
                   console.log('Unable to create account with these credentials.');
