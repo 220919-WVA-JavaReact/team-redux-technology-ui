@@ -16,6 +16,10 @@ export default function Navbar(props: INavbarProps) {
 
     useEffect(() => {},[cart]);
     
+    function logout (){
+        setUser(undefined);
+    }
+
     return (
         <div className="navbar bg-base-100 gap-x-2">
             {/* navbar title */}
@@ -45,12 +49,7 @@ export default function Navbar(props: INavbarProps) {
                     </label>
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         <li><p className='font-bold'>Welcome, {user? user.username : 'Guest'}!</p></li>
-                        {user? 
-                        <>
-                            <li><a onClick={() => setUser(undefined)}>Log Out</a></li>
-                            <li><a>Orders</a></li>
-                        </>
-                        : <>
+                        {user? <li><button onClick={logout}>Log out</button></li> : <>
                             <li><a href="#login-modal">Log In</a></li>
                             <li><a href="#register-modal">Register</a></li>
                         </>}

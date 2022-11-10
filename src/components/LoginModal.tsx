@@ -34,10 +34,9 @@ export default function LoginModal(props: ILoginProps) {
         if (response.status == 200) {
           let token = response.headers.get('Authorization');
           if(token){
-            sessionStorage.setItem('token', token);
+            localStorage.setItem('token', token);
           }
           props.setCurrentUser(await response.json());
-          console.log(props.currentUser)
         } else {
           console.log('Incorrect username and/or password');
         }
