@@ -1,3 +1,11 @@
+import { SyntheticEvent, useState } from "react";
+import { User } from "../models/user"
+
+interface ILoginProps {
+  currentUser: User | undefined,
+  setCurrentUser: (nextUser: User) => void
+}
+
 export default function RegisterModal() {
     const [first_name, setFirst_name] = useState('');
     const [last_name, setLast_name] = useState('');
@@ -38,12 +46,7 @@ export default function RegisterModal() {
           body: JSON.stringify({ first_name, last_name, username, password, email })
         })
         if (response.status == 204) {
-                  let token = response.headers.get('Authorization');
-                  if(token){
-                    sessionStorage.setItem('token', token);
-                  }
-                  props.setCurrentUser(await response.json());
-                  console.log(props.currentUser)
+                  console.log("account created successfully!")
                 } else {
                   console.log('Unable to create account with these credentials.');
                 }
