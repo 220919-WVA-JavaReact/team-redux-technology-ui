@@ -54,22 +54,21 @@ function SingleItem(props: ISingleItemProps){
     
 
     return(
-<main>
+<main className="bg-neutral-focus">
     
-    <div className="bg-neutral-focus grid grid-cols-3 gap-4" style={{padding: '150px'}}>
+    <div className="main-con grid lg:grid-cols-3 sm:grid-cols-1 gap-4 max-w-5xl m-auto" >
 
         {/*left side- image carousel*/}
-        <div className="col-span-2 box">
+        <div className="img-con lg:col-span-2 box">
 
-            <div className="col-span-1">
-                <ul>
-                    <li><Link 
+            <div className="lg:col-span-1">
+                <ul className="line">
+                    <li className="block"><Link 
                     to={`/items/${singleItems?.name.toLowerCase()}/gold`} 
-                    onClick={() => setLocalMaterial(Material.GOLD)} className="object-none object-left-bottom thumbimg" >
+                    onClick={() => setLocalMaterial(Material.GOLD)} className="object-none object-left-bottom thumbimg " >
                     <img src={'/img/' + "GOLD" + singleItems?.name.toLowerCase() + '.png'}
-
                     style={{width: 200, height: 100}}
-                    className="w-full" />
+                    className="pb" />
                     </Link></li>
 
                     <li><Link 
@@ -77,7 +76,7 @@ function SingleItem(props: ISingleItemProps){
                     onClick={() => setLocalMaterial(Material.DIAMOND)} className="object-none object-left-bottom thumbimg" >
                     <img src={'/img/' + "Diamond" + singleItems?.name.toLowerCase() + '.png'}
                     style={{width: 200, height: 100}}
-                    className="w-full" />
+                    className="pb" />
                     </Link></li>
                     <li>
 
@@ -86,7 +85,7 @@ function SingleItem(props: ISingleItemProps){
                     onClick={() => setLocalMaterial(Material.IRON)} className="object-none object-left-bottom thumbimg" >
                     <img src={'/img/' + "IRON" + singleItems?.name.toLowerCase() + '.png'}
                     style={{width: 200, height: 100}}
-                    className="w-full" />
+                    className="pb" />
                     </Link></li>
 
                     <li><Link 
@@ -94,35 +93,35 @@ function SingleItem(props: ISingleItemProps){
                     onClick={() => setLocalMaterial(Material.NETHERITE)} className="object-none object-left-bottom thumbimg" >
                     <img src={'/img/' + "NETHERITE" + singleItems?.name.toLowerCase() + '.png'}
                     style={{width: 200, height: 100}}
-                    className="w-full" />
+                    className="pb " />
                     </Link></li>
 
                 </ul>
             </div>
 
-            <div className="col-span-1 carousel rounded-box ml-20">
+            <div className="lg:col-span-1 carousel rounded-box ml-20">
                 <div id="gold" className="carousel-item w-full">
                     <img src={'/img/' + "GOLD" + singleItems?.name.toLowerCase() + '.png'}
                     style={{width: 300, height: 300}}
-                    className="w-full" />
+                    className="" />
                 </div> 
 
                 <div id="diamond" className="carousel-item w-full">
                     <img src={'/img/' + "DIAMOND" + singleItems?.name.toLowerCase() + '.png'}
                     style={{width: 300, height: 300}}
-                    className="w-full" />
+                    className="" />
                  </div> 
 
                 <div id="iron" className="carousel-item w-full">
                     <img src={'/img/' + "IRON" + singleItems?.name.toLowerCase() + '.png'}
                     style={{width: 300, height: 300}}
-                    className="w-full" />
+                    className="" />
                 </div> 
 
                  <div id="netherite" className="carousel-item w-full">
                     <img src={'/img/' + "NETHERITE" + singleItems?.name.toLowerCase() + '.png'}
                     style={{width: 300, height: 300}}
-                    className="w-full" />
+                    className="" />
                 </div>
 
             </div> 
@@ -130,8 +129,8 @@ function SingleItem(props: ISingleItemProps){
 
 
                  {/*right side- item info*/}
-         <div>
-            <h1 className="text-5xl" style={{ color: '#4dffc3' }}>{"Minecraft: " + " "  + singleItems?.name}</h1>
+         <div className="info">
+            <h1 className="text-5xl" style={{ color: '#4dffc3' }}>{"Minecraft: " + " " + singleItems?.name}</h1>
             <h3 className="my-2 text-2xl">{"Price: " + "$" + singleItems?.price}</h3>
             <label className="text-2xl">Material: </label>
             
