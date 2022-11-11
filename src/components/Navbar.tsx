@@ -49,7 +49,11 @@ export default function Navbar(props: INavbarProps) {
                     </label>
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         <li><p className='font-bold'>Welcome, {user? user.username : 'Guest'}!</p></li>
-                        {user? <li><button onClick={logout}>Log out</button></li> : <>
+                        {user? 
+                        <>
+                            <li><button onClick={logout}>Log out</button></li>
+                            <li><Link to="/orders">Order History</Link></li>
+                        </>:<>
                             <li><a href="#login-modal">Log In</a></li>
                             <li><a href="#register-modal">Register</a></li>
                         </>}

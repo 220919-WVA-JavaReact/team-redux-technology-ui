@@ -44,7 +44,7 @@ export default function Home(props: IHomeProps) {
           <div className="bg-neutral-focus p-2">
             <p className='text-center font-bold'>Buy again:</p>
             <div className='flex flex-wrap justify-between align-center'>
-              {buyAgainItems?.map(order => <ItemMiniBlock key={order.item.item_id} cart={cart} setCart={setCart} item={order.item} />)}
+              {buyAgainItems?.map((order,i) => <ItemMiniBlock key={i} cart={cart} setCart={setCart} item={order.item} />)}
             </div>
           </div>
         : ''}
@@ -68,7 +68,7 @@ export default function Home(props: IHomeProps) {
       <div className="bg-neutral-focus p-2">
         <p className='text-center font-bold'>Featured products:</p>
         <div className='flex flex-wrap justify-between align-center'>
-          {featuredItems?.map(item => <ItemMiniBlock key={item.item_id} cart={cart} setCart={setCart} item={item} />)}
+          {featuredItems?.map((item, i) => <ItemMiniBlock key={i} cart={cart} setCart={setCart} item={item} />)}
         </div>
       </div>
     </div>

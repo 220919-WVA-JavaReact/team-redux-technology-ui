@@ -31,9 +31,8 @@ export async function useAPI(route: string, method: string, headers?: HeadersIni
             body: body ? JSON.stringify(body) : undefined
         });
 
-        if (res.status != 200) {
-            console.log('could not connect');
-        } else {
+        console.log('server returned status: ' + res.status);
+        if (res.status >= 200 && res.status < 300) {
             const result = await res.json();
             return result;
         }

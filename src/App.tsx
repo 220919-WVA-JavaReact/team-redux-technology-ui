@@ -9,6 +9,7 @@ import StorePage from './pages/StorePage';
 import Checkout from './pages/Checkout';
 import { Cart } from './models/cart';
 import { User } from './models/user';
+import Orders from './pages/Orders';
 
 function App() {
 
@@ -23,7 +24,8 @@ function App() {
                     <Route path="/" element={<Home user={loggedInUser} cart={cart} setCart={setCart}/>} />
                     <Route path="/shop" element={<StorePage cart={cart} setCart={setCart}/>} />
                     <Route path="/items/:name/:material" element={< SingleItem user={loggedInUser} cart={cart} setCart={setCart}/>} />
-                    <Route path="/checkout" element={<Checkout user={loggedInUser} cart={cart} setCart={setCart} />}></Route>
+                    <Route path="/checkout" element={<Checkout user={loggedInUser} cart={cart} setCart={setCart} />} />
+                    <Route path="/orders" element={<Orders user={loggedInUser}/>} />
                 </Routes>
                 <LoginModal currentUser={loggedInUser} setCurrentUser={setLoggedInUser}/>
                 <RegisterModal />
