@@ -5,14 +5,14 @@ import { User } from '../models/user'
 import ShoppingCart from './ShoppingCart';
 
 interface INavbarProps {
-    user: User | undefined,
-    cart: Cart,
-    setCart: (nextCart: Cart) => void
-    setUser: (nextUser: User | undefined) => void
+    user: User | undefined;
+    setUser: (nextUser: User | undefined) => void;
+    cart: Cart;
+    setCart: (nextCart: Cart) => void;
 }
 
 export default function Navbar(props: INavbarProps) {
-    const {user, cart, setCart, setUser} = props;
+    const {user, setUser, cart, setCart} = props;
 
     useEffect(() => {},[cart]);
     
@@ -49,7 +49,11 @@ export default function Navbar(props: INavbarProps) {
                     </label>
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         <li><p className='font-bold'>Welcome, {user? user.username : 'Guest'}!</p></li>
-                        {user? <li><button onClick={logout}>Log out</button></li> : <>
+                        {user? 
+                        <>
+                            <li><button onClick={logout}>Log out</button></li>
+                            <li><Link to="/orders">Order History</Link></li>
+                        </>:<>
                             <li><a href="#login-modal">Log In</a></li>
                             <li><a href="#register-modal">Register</a></li>
                         </>}

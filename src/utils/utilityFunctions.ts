@@ -1,39 +1,38 @@
 import { Item, Material } from "../models/item";
 
-export function materialDisplayName(material: Material){
+export function materialDisplayName(material: Material) {
     let name = '';
-    switch(material){
+    switch (material) {
         case Material.DIAMOND:
             name = 'Diamond';
             break;
         case Material.GOLD:
-            name = 'Golden';    
+            name = 'Golden';
             break;
         case Material.IRON:
-            name = 'Iron';    
+            name = 'Iron';
             break;
         case Material.NETHERITE:
-            name = 'Netherite';    
+            name = 'Netherite';
             break;
     }
     return name;
 }
 
-export function getItemImg(item: Item){
+export function getItemImg(item: Item) {
     return 'img/' + item.material + item.name.toLowerCase() + '.png';
 }
 
-export async function useAPI(route: string, method: string, headers?: HeadersInit, body?: BodyInit) {
+export async function useAPI(route: string, method: string, headers?: HeadersInit, body?: any) {
     try {
-        const res = await fetch(`http://localhost:8080${route}`, {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}${route}`, {
             method: method,
-            headers: headers ? headers : undefined,
-            body: body ? body : undefined
-        }); 
+            headers: headers ? headers : {'Content-Type': 'application/json'},
+            body: body ? JSON.stringify(body) : undefined
+        });
 
-        if (res.status != 200) {
-            console.log('could not connect');
-        } else {
+        console.log('server returned status: ' + res.status);
+        if (res.status >= 200 && res.status < 300) {
             const result = await res.json();
             return result;
         }
@@ -43,3 +42,7 @@ export async function useAPI(route: string, method: string, headers?: HeadersIni
     }
 }
 
+export const priceFormatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+});

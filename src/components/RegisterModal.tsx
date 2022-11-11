@@ -38,7 +38,7 @@ export default function RegisterModal() {
     console.log("All fields are required.")
     } else {
     try {
-        let response = await fetch ('http://localhost:8080/register', {
+        let response = await fetch (`${import.meta.env.VITE_API_URL}/register`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

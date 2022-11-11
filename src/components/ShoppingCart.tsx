@@ -1,6 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import { Cart } from '../models/cart'
-import { materialDisplayName } from '../utils/utilityFunctions'
+import { priceFormatter } from '../utils/utilityFunctions'
 import CartItem from './CartItem';
 
 interface ICartProps {
@@ -39,9 +40,11 @@ export default function ShoppingCart(props: ICartProps) {
                     </div>
 
                     <hr/>
-                    <span className="text-info">Subtotal: ${cart.total}</span>
+                    <span className="text-info">Subtotal: {priceFormatter.format(cart.total)}</span>
                     <div className="card-actions">
-                        <button className="btn btn-primary btn-block">Checkout</button>
+                        <Link to="/checkout" className='w-full'>
+                            <button className="btn btn-primary btn-block">Checkout</button>
+                        </Link>
                     </div>
                 </div>
             </div>
