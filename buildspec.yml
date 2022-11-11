@@ -6,7 +6,7 @@ phases:
       nodejs: latest
   pre_build:
     commands:
-      - aws s3 cp s3://minecraft-store-resources/.env .
+      - aws s3 cp s3://technology-project-resources/.env .
       - npm install
   build:
     commands:
