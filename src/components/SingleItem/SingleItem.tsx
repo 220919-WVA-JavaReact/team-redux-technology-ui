@@ -53,7 +53,7 @@ function SingleItem(props: ISingleItemProps){
     }
     
 
-    return(
+    return(singleItems? 
 <main className="bg-neutral-focus">
     
     <div className="main-con grid lg:grid-cols-3 sm:grid-cols-1 gap-4 max-w-5xl m-auto" >
@@ -74,7 +74,7 @@ function SingleItem(props: ISingleItemProps){
                     <li><Link 
                     to={`/items/${singleItems?.name.toLowerCase()}/diamond`} 
                     onClick={() => setLocalMaterial(Material.DIAMOND)} className="object-none object-left-bottom thumbimg" >
-                    <img src={'/img/' + "Diamond" + singleItems?.name.toLowerCase() + '.png'}
+                    <img src={'/img/' + "DIAMOND" + singleItems?.name.toLowerCase() + '.png'}
                     style={{width: 200, height: 100}}
                     className="pb" />
                     </Link></li>
@@ -173,6 +173,8 @@ function SingleItem(props: ISingleItemProps){
         </div>
     </div>
 </main>
+:
+<h1 className="text-2xl text-center m-6">loading...</h1>
 )}
 
 export default SingleItem;
