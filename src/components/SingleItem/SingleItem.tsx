@@ -7,6 +7,7 @@ import './SingleItem.css'
 import { User } from "../../models/user";
 import { Cart } from "../../models/cart";
 import PriceModal from '../PriceUpdateModal';
+import ItemCard from "../ItemCard";
 
 interface ISingleItemProps {
     user: User | undefined,
@@ -55,6 +56,7 @@ function SingleItem(props: ISingleItemProps){
     
 
     return( 
+        singleItems?
         <main className="bg-neutral-focus">
             
             <div className="main-con grid lg:grid-cols-3 sm:grid-cols-1 gap-4 max-w-5xl m-auto" >
@@ -181,8 +183,9 @@ function SingleItem(props: ISingleItemProps){
                     }
                 </div>
             </div>
-            <PriceModal />
+            <PriceModal setMaterial={setLocalMaterial} item ={singleItems} />
         </main>
+        :""
 )}
 
 export default SingleItem;

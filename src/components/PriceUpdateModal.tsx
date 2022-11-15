@@ -1,38 +1,48 @@
-import React, { SyntheticEvent, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { Item } from '../models/item';
-import { useAPI } from '../utils/utilityFunctions';
-import ItemCard from './ItemCard';
-import SingleItem from './SingleItem/SingleItem';
-
-export default function priceModal(){
-
-    const [price, setPrice] = useState<Item>();
-    let { id } = useParams();
+import React, { useState, SyntheticEvent } from 'react';
+import { Item, Material } from '../models/item';
 
 
-    // handleChange(){
-        
-    // }
 
-    useEffect(() => {
-        updatePrice();
-    }, [])
+interface IItemProps{
+    item: Item | undefined
+    setMaterial: (nextMaterial: Material | undefined) => void
+}
+
+export default function priceModal(props: IItemProps){
+
+    const [price, setPrice] = useState('');
+
+
+
+     const handleInputChange = (e: SyntheticEvent) => {
+         setPrice((e.target as HTMLInputElement).value);
+     }
 
     let updatePrice= async () => {
+        let item = {
+            item_id: props.item?.item_id,
+            image: '',
+            name: props.item?.name,
+            price: parseFloat(price)|| props.item?.price,
+            material: props.item?.material
+        }
        
-        let response = await fetch(`${import.meta.env.VITE_API_URL}/items/${id}`,{
+        let response = await fetch(`${import.meta.env.VITE_API_URL}/items/${props.item?.item_id}`,{
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(price)
+            body: JSON.stringify(item)
             
         });  
-        console.log('price: ', price)
+        console.log('item: ', item)
         console.log('response: ', response)
-
+        if(item){
+        props.setMaterial(item.material)
+        }
     }
+
+   
 
     return(
         <div className="modal" id="price-modal">
@@ -43,11 +53,11 @@ export default function priceModal(){
                     </label>
                     <label className="input-group">
                         <span>Price</span>
-                        <input type="text" placeholder="0.00" className="input input-bordered" />
+                        <input type="text" placeholder="0.00" value={price}  onChange={handleInputChange} className="input input-bordered" />
                         <span>USD</span>
                         </label>
                         <div className="modal-action">
-                    <a href="#" className="btn">Submit</a>
+                    <a href="#" className="btn"><button onClick={updatePrice}>Submit</button></a>
                     <br/>
                     <a href="#" className="btn">Close</a>
                      </div>
