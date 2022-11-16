@@ -69,6 +69,14 @@
       padding-top: 80px;
       padding-bottom: 150px;
     }
+
+    /* button.btn.btn-primary.my-4.btn-wide{
+      margin-right: 300px;
+    }
+
+    div.btn-group.m-1.mx-8.my-6{
+      margin-right: 400px;
+    } */
     
   }
 
@@ -93,9 +101,9 @@
      padding-top: 50px;
     }
  
-    .img-con{
+    /* .img-con{
      margin-left: 30px;
-    }
+    } */
  
     div.main-con{
       padding-top: 50px;
@@ -134,7 +142,7 @@
 /* hover over images animation */
   
 
-  ul img.pb{
+   img.pb{
     margin: 0;
     padding: 0;
     display: flex;
@@ -144,13 +152,13 @@
     transform: translate(-50%, -50%);
   }
   
-  ul li img.pb{
+   li img.pb{
     list-style: none;
     margin: 0 15px;
     margin-bottom: 5px;
   }
   
-  ul li a img.pb{
+   li a img.pb{
     position: relative; 
     display: block;
     width: 80px;
@@ -161,7 +169,7 @@
     transition: .5s;
   }
   
-  ul li a::before img.pb{
+   li a::before img.pb{
     content: '';
     position: absolute;
     top: 0;
@@ -174,15 +182,41 @@
     transform: scale(.9);
     z-index: -1;
   }
+
+  ul li a:focus::before img.pb{
+    color: white;
+    box-shadow: 0 0 20px white;
+    text-shadow: 0 0 20px white;
+  }  
+
+    ul li a:focus img.pb{
+    color: white;
+    box-shadow: 0 0 20px white;
+    text-shadow: 0 0 20px white;
+  }  
   
-  ul li a:hover::before {
+   li a:hover::before {
     transform: scale(1.1);
     box-shadow: 0 0 20px gray;
   }
-  
-  ul li a:hover img.pb{
+
+   li a:hover img.pb{
     color: white;
     box-shadow: 0 0 20px white;
     text-shadow: 0 0 20px white;
   }
+  
+ 
 
+ 
+   /* ul li a:active img.pb{
+    color: white;
+    box-shadow: 0 0 20px white;
+    text-shadow: 0 0 20px white;
+  } */
+
+  
+ 
+ 
+
+  
