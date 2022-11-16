@@ -71,7 +71,7 @@ function SingleItem(props: ISingleItemProps){
                             onClick={() => setLocalMaterial(Material.GOLD)} className="object-none object-left-bottom thumbimg " >
                             <img src={'/img/' + "GOLD" + singleItems?.name.toLowerCase() + '.png'}
                             style={{width: 200, height: 100}}
-                            className="pb" />
+                            className="pb " />
                             </Link></li>
 
                             <li><Link 
@@ -166,13 +166,13 @@ function SingleItem(props: ISingleItemProps){
                         <input type="radio" name="options" data-title={count} style={{color: 'white' }} className="btn btn-disabled" />
                         <input type="radio" name="options" data-title="+" onClick={incrementCount} className="btn" />
                     </div>
-
+                    <br/>
                     <button 
                         onClick={addToCart}
                         className="btn btn-primary my-4 btn-wide" 
-                        style={{ fontWeight: 'bold' }} >
-                            Add to Cart
+                        style={{ fontWeight: 'bold' }}>Add to Cart
                     </button>
+                    <br/>
                     {
                         props.user?.role == "ADMIN" ?
 
