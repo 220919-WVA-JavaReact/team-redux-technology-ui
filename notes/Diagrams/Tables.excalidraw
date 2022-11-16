@@ -1,7 +1,7 @@
 {
   "type": "excalidraw",
   "version": 2,
-  "source": "vscode-webview://1fg2o3ldtd32trbkcn0jtmkck06jljobku4a19glhfsjtpm3b1or",
+  "source": "vscode-webview://0fo0hi3rsi169ti7ikdbvcgt1mans2g8gjamquu1paqvcv9e2gu2",
   "elements": [
     {
       "type": "rectangle",
@@ -31,8 +31,8 @@
     },
     {
       "type": "rectangle",
-      "version": 733,
-      "versionNonce": 771395361,
+      "version": 816,
+      "versionNonce": 1968518232,
       "isDeleted": false,
       "id": "aTSRYVqWe9JyeFGcrFd1e",
       "fillStyle": "hachure",
@@ -41,17 +41,17 @@
       "roughness": 1,
       "opacity": 100,
       "angle": 0,
-      "x": 492.6124267578125,
-      "y": 208.28076171875,
+      "x": 460.76348876953125,
+      "y": 213.4239959716797,
       "strokeColor": "#000000",
       "backgroundColor": "#7950f255",
       "width": 293.412841796875,
-      "height": 245.10914611816406,
+      "height": 217.42683410644528,
       "seed": 1684700663,
       "groupIds": [],
       "strokeSharpness": "sharp",
       "boundElements": [],
-      "updated": 1668528645632,
+      "updated": 1668616461930,
       "link": null,
       "locked": false
     },
@@ -92,8 +92,8 @@
     },
     {
       "type": "text",
-      "version": 653,
-      "versionNonce": 889062145,
+      "version": 742,
+      "versionNonce": 1601619032,
       "isDeleted": false,
       "id": "NeHKf1ElTij-Cm162iQN9",
       "fillStyle": "hachure",
@@ -102,12 +102,12 @@
       "roughness": 1,
       "opacity": 100,
       "angle": 0,
-      "x": 506.54266357421875,
-      "y": 218.7372817993164,
+      "x": 475.03228759765625,
+      "y": 223.55499267578125,
       "strokeColor": "#000000",
       "backgroundColor": "#7950f255",
       "width": 249,
-      "height": 225,
+      "height": 200,
       "seed": 500677977,
       "groupIds": [],
       "strokeSharpness": "sharp",
@@ -117,22 +117,22 @@
           "type": "arrow"
         }
       ],
-      "updated": 1668528645632,
+      "updated": 1668616529996,
       "link": null,
       "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
-      "text": "Items\n\nitem_id: serial\nimage: text\nname: varchar\nprice: double\nmaterial: enum\n    - iron     - gold\n    - diamond - netherite",
-      "baseline": 218,
+      "text": "Items\n\nitem_id: string\nname: string\nprice: double\nmaterial: enum\n    - iron     - gold\n    - diamond - netherite",
+      "baseline": 193,
       "textAlign": "left",
       "verticalAlign": "top",
       "containerId": null,
-      "originalText": "Items\n\nitem_id: serial\nimage: text\nname: varchar\nprice: double\nmaterial: enum\n    - iron     - gold\n    - diamond - netherite"
+      "originalText": "Items\n\nitem_id: string\nname: string\nprice: double\nmaterial: enum\n    - iron     - gold\n    - diamond - netherite"
     },
     {
       "type": "text",
-      "version": 628,
-      "versionNonce": 807306497,
+      "version": 647,
+      "versionNonce": 457400616,
       "isDeleted": false,
       "id": "OjJV0t_XYuA-VP1S6uxg1",
       "fillStyle": "hachure",
@@ -142,10 +142,10 @@
       "opacity": 100,
       "angle": 0,
       "x": 452.55482482910156,
-      "y": 527.2351913452148,
+      "y": 526.4018783569336,
       "strokeColor": "#000000",
       "backgroundColor": "#7950f255",
-      "width": 262,
+      "width": 273,
       "height": 175,
       "seed": 173680281,
       "groupIds": [],
@@ -156,22 +156,22 @@
           "type": "arrow"
         }
       ],
-      "updated": 1668528653615,
+      "updated": 1668616478952,
       "link": null,
       "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
-      "text": "Orders\n\norder_id: serial\nuser_id: int (foreign key)\nitem_id: int (foreign key)\nquantity: int\npurchase_date: timestamp",
+      "text": "Orders\n\norder_id: string\nuser_id: string (foreign key)\nitem_id: string (foreign key)\nquantity: int\npurchase_date: timestamp",
       "baseline": 168,
       "textAlign": "left",
       "verticalAlign": "top",
       "containerId": null,
-      "originalText": "Orders\n\norder_id: serial\nuser_id: int (foreign key)\nitem_id: int (foreign key)\nquantity: int\npurchase_date: timestamp"
+      "originalText": "Orders\n\norder_id: string\nuser_id: string (foreign key)\nitem_id: string (foreign key)\nquantity: int\npurchase_date: timestamp"
     },
     {
       "type": "text",
-      "version": 206,
-      "versionNonce": 1338296001,
+      "version": 254,
+      "versionNonce": 659403608,
       "isDeleted": false,
       "id": "T7DtUYxNamcZdszGFnk88",
       "fillStyle": "hachure",
@@ -184,7 +184,7 @@
       "y": 210.22134399414062,
       "strokeColor": "#000000",
       "backgroundColor": "#7950f255",
-      "width": 177,
+      "width": 158,
       "height": 300,
       "seed": 1154186393,
       "groupIds": [],
@@ -195,17 +195,17 @@
           "type": "arrow"
         }
       ],
-      "updated": 1668528696206,
+      "updated": 1668616520358,
       "link": null,
       "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
-      "text": "Users\n\nuser_id: serial\nusername: varchar\npassword: varchar\nfirst: varchar\nlast: varchar\nemail: varchar\nrole: enum\n        - buyer\n        - admin\n",
+      "text": "Users\n\nuser_id: string\nusername: string\npassword: string\nfirst: string\nlast: string\nemail: string\nrole: enum\n        - buyer\n        - admin\n",
       "baseline": 293,
       "textAlign": "left",
       "verticalAlign": "top",
       "containerId": null,
-      "originalText": "Users\n\nuser_id: serial\nusername: varchar\npassword: varchar\nfirst: varchar\nlast: varchar\nemail: varchar\nrole: enum\n        - buyer\n        - admin\n"
+      "originalText": "Users\n\nuser_id: string\nusername: string\npassword: string\nfirst: string\nlast: string\nemail: string\nrole: enum\n        - buyer\n        - admin\n"
     },
     {
       "type": "line",
@@ -250,8 +250,8 @@
     },
     {
       "type": "line",
-      "version": 403,
-      "versionNonce": 889714369,
+      "version": 464,
+      "versionNonce": 1430452264,
       "isDeleted": false,
       "id": "CU5yfu2B1NVJgOxMWSs5P",
       "fillStyle": "hachure",
@@ -260,8 +260,8 @@
       "roughness": 1,
       "opacity": 100,
       "angle": 0,
-      "x": 511.8173828125,
-      "y": 255.23187255859375,
+      "x": 480.3070068359375,
+      "y": 260.88291931152344,
       "strokeColor": "#000000",
       "backgroundColor": "#7950f255",
       "width": 256.23297119140625,
@@ -270,7 +270,7 @@
       "groupIds": [],
       "strokeSharpness": "round",
       "boundElements": [],
-      "updated": 1668528645632,
+      "updated": 1668616461931,
       "link": null,
       "locked": false,
       "startBinding": null,
@@ -384,8 +384,8 @@
     },
     {
       "type": "arrow",
-      "version": 1522,
-      "versionNonce": 1173455745,
+      "version": 1570,
+      "versionNonce": 68931112,
       "isDeleted": false,
       "id": "nVSUjctP9GJQblXcMgeMz",
       "fillStyle": "hachure",
@@ -399,12 +399,12 @@
       "strokeColor": "#000000",
       "backgroundColor": "#7950f255",
       "width": 303.92893218994135,
-      "height": 333.60314889172935,
+      "height": 334.6729811322052,
       "seed": 608887383,
       "groupIds": [],
       "strokeSharpness": "round",
       "boundElements": [],
-      "updated": 1668528729170,
+      "updated": 1668616520358,
       "link": null,
       "locked": false,
       "startBinding": {
@@ -435,14 +435,14 @@
         ],
         [
           -252.1241073608398,
-          -333.60314889172935
+          -334.6729811322052
         ]
       ]
     },
     {
       "type": "arrow",
-      "version": 1068,
-      "versionNonce": 1962799983,
+      "version": 1174,
+      "versionNonce": 193482024,
       "isDeleted": false,
       "id": "ki6Tzr9oc4wBXs_14UIDc",
       "fillStyle": "hachure",
@@ -455,13 +455,13 @@
       "y": 645.470475601355,
       "strokeColor": "#000000",
       "backgroundColor": "#7950f255",
-      "width": 124.28519439697266,
-      "height": 367.2304062632438,
+      "width": 92.77481842041016,
+      "height": 356.451446917867,
       "seed": 11955767,
       "groupIds": [],
       "strokeSharpness": "round",
       "boundElements": [],
-      "updated": 1668528720368,
+      "updated": 1668616529996,
       "link": null,
       "locked": false,
       "startBinding": {
@@ -471,7 +471,7 @@
       },
       "endBinding": {
         "elementId": "NeHKf1ElTij-Cm162iQN9",
-        "focus": 0.7605782607363903,
+        "focus": 0.7213147740980638,
         "gap": 22.26922607421875
       },
       "lastCommittedPoint": null,
@@ -495,12 +495,12 @@
           -170.2973493806519
         ],
         [
-          9.880233764648438,
-          -332.829850601355
+          -7.9582672119140625,
+          -329.17099134842533
         ],
         [
-          64.88804626464844,
-          -367.2304062632438
+          33.37767028808594,
+          -356.451446917867
         ]
       ]
     },
