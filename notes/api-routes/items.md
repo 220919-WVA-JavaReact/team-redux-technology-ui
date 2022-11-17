@@ -45,3 +45,25 @@
 - Status Code (Failure): 500 Server Error
 ---
 ## POST: Method to update an item's price
+- Request Body:
+```json
+{
+    "item_id": {/*current_item_id*/},
+    "name": {/*current_name*/},
+    "image": {/*current_image*/},
+    "price": "{updated_price}",
+    "material": {/*current_material*/},
+}
+```
+- Status Code (Success): 200 OK
+- Response Body
+```json
+{
+    "item_id": {/*current_item_id*/},
+    "name": {/*current_name*/},
+    "image": {/*current_image*/},
+    "price": "{updated_price}",
+    "material": {/*current_material*/},
+}
+```
+- Status Code (Failure): 500 Server Error

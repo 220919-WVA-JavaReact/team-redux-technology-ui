@@ -21,11 +21,12 @@ function SingleItem(props: ISingleItemProps){
 
     const [singleItems, setSingleItems] = useState<Item>()
     const [localMaterial, setLocalMaterial] = useState<Material>()
+    const [updatedPriceCounter, setUpdatedPriceCounter] = useState(0);
     let [count, setCount] = useState(0);
 
     useEffect(() => {
         FetchItems();
-    }, [localMaterial])
+    }, [localMaterial, updatedPriceCounter])
 
     let { name, material } = useParams();
 
@@ -185,7 +186,7 @@ function SingleItem(props: ISingleItemProps){
                     }
                 </div>
             </div>
-            <PriceModal setMaterial={setLocalMaterial} item ={singleItems} />
+            <PriceModal updateCounter={updatedPriceCounter} setUpdateCounter={setUpdatedPriceCounter} item ={singleItems} />
         </main>
         :
         <h1 className="text-2xl text-center m-6">loading...</h1>

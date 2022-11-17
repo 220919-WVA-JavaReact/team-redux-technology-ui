@@ -3,10 +3,13 @@ import { Item, Material } from "../models/item";
 
 interface IItemProps {
   item: Item | undefined;
-  setMaterial: (nextMaterial: Material | undefined) => void;
+  updateCounter: number;
+  setUpdateCounter: (nextCount: number) => void;
 }
 
 export default function priceModal(props: IItemProps) {
+  const {updateCounter, setUpdateCounter} = props;
+  
   const [price, setPrice] = useState("");
 
   const handleInputChange = (e: SyntheticEvent) => {
@@ -38,7 +41,7 @@ export default function priceModal(props: IItemProps) {
       }
     );
     if (item) {
-      props.setMaterial(item.material);
+      setUpdateCounter(updateCounter + 1);
     }
     handleClick();
   };
