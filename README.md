@@ -24,6 +24,7 @@ Welcome to the Minecraft Shop! An e-commerce website where you can purchase tool
  - Tailwind
  - Daisy UI
  - Typescript
+ - CSS
 
  
  
