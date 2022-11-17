@@ -1,13 +1,15 @@
-# URL Pattern: `/auth`
-## PUT: Login method
+# URL Pattern: `/register`
+## POST: Register Method
 - Request Body:
 ```json
 {
     "username": "{user-input}",
-    "password": "{user-input}"
+    "password": "{user-input}",
+    "first": "{user-input}",
+    "last": "{user-input}"
 }
 ```
-- Status Code (Success): 200 OK
+- Status Code (Success): 201 CREATED
 - Response Body:
 ```json
 {
@@ -17,4 +19,4 @@
     "last": "{server-response}"
 }
 ```
-- Status Code (Failure): 404 Not Found
+- Status Code (Failure): 409 CONFLICT
