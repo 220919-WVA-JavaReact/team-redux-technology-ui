@@ -35,7 +35,9 @@ function SingleItem(props: ISingleItemProps){
         const data = await useAPI(`/items/single/${name}?material=${material?.toUpperCase()}`, 'GET');
         setSingleItems(data);
         console.log(data);
-
+        if (data && localMaterial != data.material){
+            setLocalMaterial(data.material);
+        }
         window.location.href = '#' + data?.material.toLowerCase();
     }
 
