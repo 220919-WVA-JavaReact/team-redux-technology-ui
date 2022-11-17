@@ -6,6 +6,9 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    colors: {
+      'yellow': '#fcd34d'
+    },
   },
   plugins: [require('daisyui')],
 }
