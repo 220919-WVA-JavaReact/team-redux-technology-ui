@@ -8,31 +8,31 @@ import { User } from '../models/user';
 import { useAPI } from '../utils/utilityFunctions';
 
 interface IHomeProps {
-    user: User | undefined;
-    cart: Cart | undefined;
-    setCart: (nextCart: Cart) => void
+  user: User | undefined;
+  cart: Cart | undefined;
+  setCart: (nextCart: Cart) => void
 }
 
 export default function Home(props: IHomeProps) {
   const [featuredItems, setFeaturedItems] = useState<Item[]>();
   const [buyAgainItems, setBuyAgainItems] = useState<Order[]>();
-  const {user, cart, setCart} = props;
+  const { user, cart, setCart } = props;
 
   useEffect(() => {
     getRandomItems();
     if (user) getPastOrders();
-    
-  }, [user]) 
+
+  }, [user])
 
   async function getRandomItems() {
     const data = await useAPI('/items/random/6', 'GET');
     setFeaturedItems(data);
   }
 
-  async function getPastOrders(){
+  async function getPastOrders() {
     let data = await useAPI(`/orders/${user?.user_id}`, 'GET');
     console.log(data)
-    if (data?.length > 6) data.slice(0,5) 
+    if (data?.length > 6) data.slice(0, 5)
     setBuyAgainItems(data);
   }
 
@@ -40,15 +40,16 @@ export default function Home(props: IHomeProps) {
     <div className="flex flex-col">
       <div>
         {/* buy again */}
-        {user?
+        {(user && buyAgainItems && buyAgainItems.length > 0) ?
           <div className="bg-neutral-focus p-2">
             <p className='text-center font-bold'>Buy again:</p>
             <div className='flex flex-wrap justify-between align-center'>
-              {buyAgainItems?.map((order,i) => <ItemMiniBlock key={i} cart={cart} setCart={setCart} item={order.item} />)}
+              {buyAgainItems?.map((order, i) => <ItemMiniBlock key={i} cart={cart} setCart={setCart} item={order.item} />)}
             </div>
           </div>
-        : ''}
-        
+
+          : ''}
+
         {/* hero section */}
         <div className="hero min-h-screen" style={{ backgroundImage: `url('/img/site/herobg1.png')` }}>
           <div className="hero-overlay bg-opacity-50"></div>
