@@ -50,7 +50,7 @@ export default function Home(props: IHomeProps) {
         : ''}
         
         {/* hero section */}
-        <div className="hero min-h-screen" style={{ backgroundImage: `url("img/site/herobg1.png")` }}>
+        <div className="hero min-h-screen" style={{ backgroundImage: `url('/img/site/herobg1.png')` }}>
           <div className="hero-overlay bg-opacity-50"></div>
           <div className="hero-content text-center text-accent-content">
             <div className="max-w-md">

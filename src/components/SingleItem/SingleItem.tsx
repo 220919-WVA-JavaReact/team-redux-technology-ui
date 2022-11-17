@@ -55,6 +55,7 @@ function SingleItem(props: ISingleItemProps){
     }
     
 
+
     return( 
         singleItems?
         <main className="bg-neutral-focus">
@@ -77,7 +78,7 @@ function SingleItem(props: ISingleItemProps){
                             <li><Link 
                             to={`/items/${singleItems?.name.toLowerCase()}/diamond`} 
                             onClick={() => setLocalMaterial(Material.DIAMOND)} className="object-none object-left-bottom thumbimg" >
-                            <img src={'/img/' + "Diamond" + singleItems?.name.toLowerCase() + '.png'}
+                            <img src={'/img/' + "DIAMOND" + singleItems?.name.toLowerCase() + '.png'}
                             style={{width: 200, height: 100}}
                             className="pb" />
                             </Link></li>
@@ -128,6 +129,7 @@ function SingleItem(props: ISingleItemProps){
                         </div>
 
                     </div> 
+
                 </div>
 
 
@@ -185,7 +187,9 @@ function SingleItem(props: ISingleItemProps){
             </div>
             <PriceModal setMaterial={setLocalMaterial} item ={singleItems} />
         </main>
-        :""
+        :
+        <h1 className="text-2xl text-center m-6">loading...</h1>
+
 )}
 
 export default SingleItem;
