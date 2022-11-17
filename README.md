@@ -18,34 +18,34 @@ Welcome to the Minecraft Shop! An e-commerce website where you can purchase tool
 * [Authors](#authors)
 
 ## Technologies
- -Node.js
- -React.js
- -Vite
- -Tailwind
- -Daisy UI
- -Typescript
+ - Node.js
+ - React.js
+ - Vite
+ - Tailwind
+ - Daisy UI
+ - Typescript
 
  
  
 ## Installation
 
--To obtain repository on local computer clone repository API(Link on Website section) and UI(separately) on the command line from GitHub HTTP from Green code button on separate folders: `git clone [GitHub HTTP Link]`
+- To obtain repository on local computer clone repository API(Link on Website section) and UI(separately) on the command line from GitHub HTTP from Green code button on separate folders: `git clone [GitHub HTTP Link]`
 
--Once both are installed in local machine run: `npm i OR npm install`
+- Once both are installed in local machine run: `npm i OR npm install`
 
--Create a .env file in the root directory with: "VITE_API_URL=http://localhost:8080"
+- Create a .env file in the root directory with: "VITE_API_URL=http://localhost:8080"
 
 
 
 ## Website
-Deployed: http://technology-project-ui.s3-website.us-east-2.amazonaws.com/
-API: https://github.com/220919-WVA-JavaReact/team-redux-technology-api
+- Deployed: http://technology-project-ui.s3-website.us-east-2.amazonaws.com/
+- API: https://github.com/220919-WVA-JavaReact/team-redux-technology-api
 
 ## GitHub
-Jonny: https://github.com/bluephosphor
-Lesly: https://github.com/leslyr562
-Roger: https://github.com/RaventiGIT
-Lilith: https://github.com/Hek80
+- Jonny: https://github.com/bluephosphor
+- Lesly: https://github.com/leslyr562
+- Roger: https://github.com/RaventiGIT
+- Lilith: https://github.com/Hek80
 
 
 ## Authors
