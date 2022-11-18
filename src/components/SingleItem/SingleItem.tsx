@@ -55,6 +55,7 @@ function SingleItem(props: ISingleItemProps){
         if (singleItems && count > 0) {
             setCart(cart?.addEntry({item: singleItems, count: count}));
         }
+        setCount(0);
     }
     
 
