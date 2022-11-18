@@ -56,7 +56,7 @@ export default function Home(props: IHomeProps) {
           <div className="hero-content text-center text-accent-content">
             <div className="max-w-md">
               <h1 className="mb-5 text-5xl font-bold">Your one stop shop.</h1>
-              <p className="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+              <p className="mb-5">Welcome to the Minecraft Shop! An e-commerce website where you can purchase tools and armor for Minecraft (The game). Facilitating the game by being able to purchase items that would take you time and effort gathering material to obtain.</p>
               <Link to="/shop">
                 <button className="btn btn-primary">browse items</button>
               </Link>
